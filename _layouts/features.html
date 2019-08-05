@@ -1,0 +1,32 @@
+---
+layout: body
+---
+
+<h1>{{ page.title }}</h1>
+
+{{ content }}
+
+<div class="features">
+  {% assign features = '/features' | get_pages | sort: 'date' | reverse %}
+  {% for feature in features %}
+  <div class="feature">
+    <div class="feature-inner">
+
+      {% assign image_thumbnail_is_not_empty = feature.image_thumbnail | is_not_empty %}
+      {% if image_thumbnail_is_not_empty %}
+      <a class="feature-thumbnail" href="{{ feature.url | relative_url }}">
+        <img src="{{ feature.image_thumbnail | relative_url }}" alt="{{ feature.title }}" />
+      </a>
+      {% endif %}
+
+      <div class="feature-content">
+        <h2>
+          <a href="{{ feature.url | relative_url }}">{{ feature.title }}</a>
+        </h2>
+        <p>{{ feature.description }}</p>
+      </div>
+
+    </div>
+  </div>
+  {% endfor %}
+</div>

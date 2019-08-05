@@ -1,0 +1,8 @@
+<div class="footer">
+  <div class="footer-inner">
+    {% assign secondary_is_not_empty = site.menus.secondary | is_not_empty %}
+    {% if secondary_is_not_empty %}
+      {% include menu_secondary.html %}
+    {% endif %}
+  </div>
+</div>

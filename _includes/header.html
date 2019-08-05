@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="site-header-inner">
+  <div class="site-branding">
+    <img class="site-logo" src="{{ site.logo | relative_url }}"/>
+    <h1 class="site-title"><a href='{{ site.baseurl | relative_url }}'>{{ site.title }}</a></h1>
+  </div>
+  {% assign main_is_not_empty = site.menus.main | is_not_empty %}
+  {% if main_is_not_empty %}
+  <nav class="site-navigation">
+    {% assign menu = site.menus.main %}
+    
+    {% include menu.html menu=menu page=page %}
+  </nav>
+  {% endif %}
+  </div>
+</header>
